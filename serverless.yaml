@@ -1,0 +1,21 @@
+service:
+  name: nest-lambda-docker-container-surport
+
+plugins:
+  - "serverless-plugin-typescript"
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: ap-northeast-2
+  stage: dev
+  profile: lambda-docker
+
+functions:
+  main: 
+    handler: src/lambda.handler
+    events:
+      - http:
+          method: any
+          path: /{any+}
