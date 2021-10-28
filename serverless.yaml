@@ -1,8 +1,8 @@
 service:
-  name: nest-lambda-docker-container-surport
+  name: nest-lambda-docker
 
 plugins:
-  - "serverless-plugin-typescript"
+  # - serverless-plugin-typescript
   - serverless-offline
 
 provider:
@@ -11,10 +11,20 @@ provider:
   region: ap-northeast-2
   stage: dev
   profile: lambda-docker
+  ecr:
+    images:
+      appimage:
+        path: ./
 
 functions:
   main: 
-    handler: src/lambda.handler
+    image:
+      name: appimage
+      command:
+        - dist/lambda.handler
+      entryPoint:
+        - '/lambda-entrypoint.sh'
+    # handler: src/lambda.handler
     events:
       - http:
           method: any
