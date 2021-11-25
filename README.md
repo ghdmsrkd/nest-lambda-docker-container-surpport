@@ -38,3 +38,5 @@ If the installation is complete, let's get started.
     
 
 We deployed the Nestjs backend app using Lambda's newly added [Lambda docker container support](https://aws.amazon.com/ko/blogs/korea/new-for-aws-lambda-container-image-support/). This means that Nestjsapp can be operated in a **Serverless environment**, not in a Provisioning environment, a service such as AWS EC2. It also means that it can be distributed up to 10GB of capacity, which can **escape from the capacity limitations** of the existing ZIP method.
+
+If you want more info please [vist my blog](https://velog.io/@ghdmsrkd/NestJS-App-deploy-with-lambda-docker-container-support-and-Serverless-Framwork)
