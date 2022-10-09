@@ -1,7 +1,7 @@
 service: nest-lambda-docker
 
 plugins:
-  # - serverless-plugin-typescript
+  - serverless-plugin-typescript
   - serverless-offline
 
 provider:
@@ -10,21 +10,20 @@ provider:
   region: ap-northeast-2
   stage: dev
   profile: lambda-docker
-  lambdaHashingVersion: 20201221
   ecr:
     images:
       appimage:
         path: ./
 
 functions:
-  main: 
-    image:
-      name: appimage
-      command:
-        - dist/lambda.handler
-      entryPoint:
-        - '/lambda-entrypoint.sh'
-    # handler: src/lambda.handler
+  main:
+    # image:
+    #   name: appimage
+    #   command:
+    #     - dist/lambda.handler
+    #   entryPoint:
+    #     - '/lambda-entrypoint.sh'
+    handler: src/lambda.handler
     events:
       - http:
           method: any
