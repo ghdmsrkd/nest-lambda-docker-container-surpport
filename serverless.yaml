@@ -4,7 +4,7 @@ frameworkVersion: '3'
 
 plugins:
   - serverless-jetpack
-  - serverless-plugin-typescript
+  # - serverless-plugin-typescript
   - serverless-offline
 
 provider:
@@ -20,13 +20,13 @@ provider:
 
 functions:
   main:
-    # image:
-    #   name: appimage
-    #   command:
-    #     - dist/lambda.handler
-    #   entryPoint:
-    #     - '/lambda-entrypoint.sh'
-    handler: src/lambda.handler
+    image:
+      name: appimage
+      command:
+        - dist/lambda.handler
+      entryPoint:
+        - '/lambda-entrypoint.sh'
+    # handler: src/lambda.handler
     events:
       - http:
           method: any
