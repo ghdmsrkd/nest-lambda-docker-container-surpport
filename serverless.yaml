@@ -1,6 +1,9 @@
 service: nest-lambda-docker
 
+frameworkVersion: '3'
+
 plugins:
+  - serverless-jetpack
   - serverless-plugin-typescript
   - serverless-offline
 
